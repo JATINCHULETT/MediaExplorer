@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Search App</title>
+  <link rel="stylesheet" href="video.css">
+</head>
+<body>
+<div class="container">
+  <div class="search-section">
+    <div class="search-box">
+      <input type="text" class="search-input" placeholder="Search for videos...">
+      <button class="search-button">Search</button>
+    </div>
+    <div class="error"></div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="search">Search Results</button>
+    <button class="tab" data-tab="saved">Saved Videos</button>
+  </div>
+
+  <div class="videos-grid"></div>
+  <button class="show-more-button" style="display: none;">Show More Videos</button>
+  <div class="loading" style="display: none;">Loading...</div>
+</div>
+
+<script src="video.js"></script>
+</body>
+</html>
