@@ -28,15 +28,7 @@
             to { opacity: 0; visibility: hidden; }
         }
 
-        .loader {
-            width: 100px;
-            height: 100px;
-            border: 10px solid #f3f3f3;
-            border-top: 10px solid #3498db;
-            border-radius: 50%;
-/*             animation: spin 1s linear infinite; */
-        }
-
+       
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
@@ -103,38 +95,5 @@
         </div>
     </div>
 
-    <script>
-        
-        setTimeout(() => {
-            document.getElementById('loading-screen').style.display = 'none';
-        }, 0);
-
-        
-        function showLoadingAndRedirect(path) {
-            
-            const loadingOverlay = document.createElement('div');
-            loadingOverlay.style.position = 'fixed';
-            loadingOverlay.style.top = '0';
-            loadingOverlay.style.left = '0';
-            loadingOverlay.style.width = '100%';
-            loadingOverlay.style.height = '100%';
-            loadingOverlay.style.background = 'rgba(0,0,0,0.5)';
-            loadingOverlay.style.display = 'flex';
-            loadingOverlay.style.justifyContent = 'center';
-            loadingOverlay.style.alignItems = 'center';
-            loadingOverlay.style.zIndex = '9999';
-
-            const loader = document.createElement('div');
-            loader.className = 'loader';
-            loadingOverlay.appendChild(loader);
-
-            document.body.appendChild(loadingOverlay);
-
-            
-            setTimeout(() => {
-                window.location.href = path;
-            }, 0);
-        }
-    </script>
 </body>
 </html>
