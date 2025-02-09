@@ -1,0 +1,443 @@
+body {
+    background: linear-gradient(45deg, #0f0c29, #302b63, #24243e);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    min-height: 100vh;
+    color: #fff;
+    animation: gradientBG 15s ease infinite;
+    background-size: 400% 400%;
+  }
+  
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    text-align: center;
+    margin: 2rem 0 3rem;
+    text-transform: uppercase;
+    background: linear-gradient(to right, #fff 20%, #64f38c 40%, #64f38c 60%, #fff 80%);
+    background-size: 200% auto;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: shine 4s linear infinite;
+    text-shadow: 0 0 30px rgba(100, 243, 140, 0.3);
+  }
+  
+  @keyframes shine {
+    to { background-position: 200% center; }
+  }
+  
+  form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    padding: 0 1rem;
+  }
+  
+  #search-input {
+    width: 60%;
+    max-width: 500px;
+    padding: 1rem 1.5rem;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    font-size: 1.1rem;
+    color: #fff;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  }
+  
+  #search-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+  }
+  
+  #search-input:focus {
+    outline: none;
+    border-color: #64f38c;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 20px rgba(100, 243, 140, 0.3);
+  }
+  
+  #search-button {
+    padding: 1rem 2rem;
+    background: linear-gradient(45deg, #64f38c, #0fa);
+    color: #000;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(100, 243, 140, 0.3);
+  }
+  
+  #search-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(100, 243, 140, 0.4);
+  }
+  
+  #search-button:active {
+    transform: translateY(1px);
+  }
+  
+  .search-results {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .search-result {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s ease;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+  }
+  
+  .search-result:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  }
+  
+  .search-result img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+  
+  .search-result:hover img {
+    transform: scale(1.1);
+  }
+  
+  .search-result a {
+    padding: 1rem;
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+  }
+  
+  .search-result:hover a {
+    transform: translateY(0);
+  }
+  
+  #show-more-button {
+    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+    border: none;
+    color: #fff;
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 2rem auto;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+    display:block;
+    display:none;
+  }
+  
+  #show-more-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+  }
+  
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin: 2rem 0;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  }
+  
+  .saved-photos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  @media screen and (max-width: 768px) {
+    h1 {
+      font-size: 2.5rem;
+    }
+    
+    form {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    #search-input {
+      width: 100%;
+    }
+    
+    .search-results {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      padding: 1rem;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    h1 {
+      font-size: 2rem;
+    }
+    
+    .search-results {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .search-result, .saved-photo-wrapper {
+    position: relative;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  
+  .search-result:hover, .saved-photo-wrapper:hover {
+    transform: translateY(-5px);
+  }
+  
+  .search-result img, .saved-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  
+  .photo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  
+  .search-result:hover .photo-overlay,
+  .saved-photo-wrapper:hover .photo-overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+  
+  .save-button, .delete-button {
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  }
+  
+  .save-button:hover, .delete-button:hover {
+    transform: scale(1.1);
+    background: white;
+  }
+  
+  .save-button svg {
+    fill: #ff4d4d;
+  }
+  
+  .save-button.saved {
+    background: #ff4d4d;
+  }
+  
+  .save-button.saved svg {
+    fill: rgba(255, 255, 255, 0);
+  }
+  
+  .delete-button svg {
+    fill: #ff4d4d;
+  }
+  
+  .delete-button:hover {
+    background: #ff4d4d;
+  }
+  
+  .delete-button:hover svg {
+    fill: white;
+  }
+  
+  
+  .search-result a {
+    display: block;
+    padding: 10px;
+    text-align: center;
+    color: #333;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0);
+  }
+  
+  .search-result a:hover {
+    background: #f5f5f5;
+  }
+
+
+
+.search-result, .saved-photo-wrapper {
+    position: relative;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.search-result:hover, .saved-photo-wrapper:hover {
+    transform: translateY(-5px);
+}
+
+.search-result img, .saved-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.photo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.search-result:hover .photo-overlay,
+.saved-photo-wrapper:hover .photo-overlay {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+.save-button, .delete-button, .download-button, .share-button {
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.save-button:hover, .delete-button:hover, .download-button:hover, .share-button:hover {
+    transform: scale(1.1);
+    background: white;
+}
+
+
+.save-button svg {
+    fill: #ff4d4d;
+}
+
+.save-button.saved {
+    background: #ff4d4d;
+}
+
+.save-button.saved svg {
+    fill: white;
+}
+
+
+.delete-button svg {
+    fill: #ff4d4d;
+}
+
+.delete-button:hover {
+    background: #ff4d4d;
+}
+
+.delete-button:hover svg {
+    fill: white;
+}
+
+.download-button svg {
+    fill: #4CAF50;
+}
+
+.download-button:hover {
+    background: #4CAF50;
+}
+
+.download-button:hover svg {
+    fill: white;
+}
+
+.share-button svg {
+    fill: #2196F3;
+}
+
+.share-button:hover {
+    background: #2196F3;
+}
+
+.share-button:hover svg {
+    fill: white;
+}
+
+
+.search-result a {
+    display: block;
+    padding: 10px;
+    text-align: center;
+    color: #333;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0);
+}
+
+.search-result a:hover {
+    background: #f5f5f5;
+}
