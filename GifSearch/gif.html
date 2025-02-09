@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, shrink-to-fit=no">
+  <title>GiPeY 👻 - Your GIFs Store</title>
+  <meta name="description" content="Most Unwanted GIFs Store">
+  <link rel="icon" href="favicon.ico">
+  <meta itemprop="name" content="GiPeY 👻">
+  <meta itemprop="description" content="Your GIFs Store">
+  <meta itemprop="image" content="icons/icon-192x192.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="GiPeY 👻">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="GiPey 👻">
+
+  <link rel="apple-touch-icon" href="icons/icon-48x48.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="icons/icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="96x96" href="icons/icon-96x96.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="icons/icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="icons/icon-192x192.png">
+
+  <meta name="msapplication-TileImage" content="icons/icon-144x144.png">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <meta property="og:site_name" content="GiPeY 👻👋">
+  <meta property="og:url" content="https://github.com/JATINCHULETT">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="GiPeY 👻">
+  <meta property="og:description" content="GIfs Store">
+  <meta property="og:image" content="icons/icon-144x144.png">
+  <!-- Web Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:500,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="gif.css">
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker.register("sw.js").then(function (registration) {
+          console.log("ServiceWorker registration successful with scope: ", registration.scope);
+        }).catch(function (err) {
+          console.log("ServiceWorker registration failed: ", err);
+        });
+      });
+    }
+  </script>
+</head>
+
+<body>
+  <header id="searchArea">
+    <div class="flex">
+      <div>
+        <a href="./">
+          <h1 class="logo">GiPeY 👻</h1>
+        </a>
+        <h4 class="description">Your Favorite GiFs Store</h4>
+      </div>
+      <div>
+        <label class="theme-switch" for="checkbox" >
+          
+          
+        </label>
+        <button id="playPauseBut" title="Set Autoplay">Auto play: ON</button>
+        <select id="sType" title="Change type search">
+          <option value="gifs/search?">Search Gifs</option>
+          <option value="stickers/search?">Search Stickers</option>
+          <option value="gifs/trending?">Trending Gifs</option>
+          <option value="stickers/trending?">Trending Stickers</option>
+        </select>
+        <input id="inputS" class="search" type="search" placeholder="Search GIFs">
+      </div>
+    </div>
+  </header>
+  <main id="imgArea">
+    <div id="images"></div>
+    <div class="sharer" id="sharer">
+      <a class="a" id="shareTwitter" title="Share on Twitter"></a>
+      <a class="a" id="shareFb" title="Share on Facebook"></a>
+      <a class="a" id="shareLink" title="Copy link to Clipboard"><span class="tooltip">Copied</span></a>
+      <a class="a" id="shareAll" title="Share more"></a>
+    </div>
+  </main>
+  <footer>
+    <div class="flex">
+      <div class="hide-on-mobile">
+        <h3>GiPeY 👻</h3>
+        <h5>
+          Built By Jatin <span class="description">© 2025 • All rights reserved</span>
+        </h5>
+      </div>
+      <div>
+        <a href="https://github.com/JATINCHULETT" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path
+              d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+          </svg>
+        </a>
+        <h5>
+          <span class="trigger">License</a></span><span class="description"> • </span><a
+            href="https://www.linkedin.com/in/jatin-chulet-7a86912b4" target="_blank">Contact</a>
+        </h5>
+      </div>
+    </div>
+    </div>
+  </footer>
+  <div class="modal">
+    <span class="close-button">✖</span>
+    <div class="modal-content">
+      <h2>License</h2>
+      <h4>Made with <a href="https://developers.giphy.com">GIPHY API</a></h4>
+      <p>• <a href="https://developers.giphy.com/faq">FAQ</a></p>
+      <p>• <a href="https://developers.giphy.com/docs/sdk">Docs</a></p>
+      <p>• <a href="https://support.giphy.com/hc/en-us/articles/360028134111-GIPHY-API-Terms-of-Service-">API Terms of
+          Service</a></p>
+      <p>• <a href="https://support.giphy.com/hc/en-us/articles/360020027752-GIPHY-User-Terms-of-Service">User Terms of
+          Service</a></p>
+    </div>
+  </div>
+  <script src="gif.js"></script>
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/gif.js"></script>
+</body>
+
+</html>
