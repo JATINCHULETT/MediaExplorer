@@ -237,7 +237,7 @@ body {
     text-align: center;
     padding: 3rem;
     font-size: 1.2rem;
-    color: var(--primary-color);
+    color: white;
     font-weight: 500;
     animation: pulse 1.5s infinite;
 }
